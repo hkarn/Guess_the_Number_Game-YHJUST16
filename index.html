@@ -1,262 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Gissa talet spelet v.6</title>
     <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="author" content="Håkan K Arnoldson">
+    <!--
+    LinkedIn https://www.linkedin.com/in/arnoldson
+    GitHub https://github.com/hkarn/
+    This is an assignment for the first course in javascript at my front-end developer program.
+    I remade the program at the end of the course, about half a semester into the program to show some new skills.
+    -->
+
+    <title>The Number Guessing Game</title>
+
+    <link rel="stylesheet" href="plugins/bootstrap-4.0.0-alpha.5-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <script type="text/javascript">
-      /* WELCOME MESSAGE */
-      window.alert("Welcome to Guess the Number");
+    <script src="plugins/jquery-3.1.1/js/jquery-3.1.1.min.js"></script>
+    <script src="plugins/bootstrap-4.0.0-alpha.5-dist/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/guess.js"></script>
 
-      /**
-      GAME TYPE SELECTION
-      var type
-      1 = ONE GUESS PER CHALLANGE
-      2 = GUESS UNTIL CORRECT
-      */
-      var validflag = false; //flag for valid choice
-      do {
-        var gametype = prompt("Select your game type.\n1 = Just one guess per challange.\n2 = Keep guessing until you have found the correct number in each challange.\nType your choice below 1 or 2");
-        //if input is correct
-        if ((parseInt(gametype,10) === 1) || (parseInt(gametype,10) === 2)) { 
-        //possibly type == n would be sufficient here
-          validflag = true; //valid choice set to true
-        } else {
-          window.alert("This choice appears invalid. Type 1 or 2.");
-        }
-        } while (!validflag);
-      
 
 
-      var intervals = new Array();
-      var successes = 0;
-      var guesses = new Array(); 
-      var answers = new Array(); 
-     
-      var gamecounter = 0;
-
-      var gameArray = new Array();
-      
-
-      /** 
-      MAIN GAME LOOP
-      */
-      do {
-
-        validflag = false;
-        do {
-          var min = window.prompt("You will be guessing a random integer in a interval of your choosing.\nChoose the lowest possible number:");
-          if (min == parseInt(min,10)) { 
-        //check if input is integer
-            validflag = true; //valid choice set to true
-          } else {
-            window.alert("This choice appears invalid. Try again with an integer.");
-          }
-        } while (!validflag);
-
-
-        validflag = false;
-        do {
-          var max = window.prompt("Choose the highest possible number:");
-          if ((max == parseInt(max,10)) && (max > min)) { 
-        //check if input is integer
-            validflag = true; //valid choice set to true
-          } else {
-            window.alert("This choice appears invalid. Try again with an integer and make sure it is larger then the first number you entered.");
-          }
-        } while (!validflag);
-
-
-        //Prepare numbers and generate random.
-        var answer = Math.floor(Math.random() * (parseInt(max,10) - parseInt(min,10) + 1)) + parseInt(min,10);
-        
-        //DEBUG
-        console.log(answer);
-        //DEBUG
-
-        var guess = takeGuess(min,max);
-        var gameObject = new Object();
-
-
-        if (gametype == 1) {
-          intervals[gamecounter] = min + "-" + max;
-          guesses[gamecounter] = guess; 
-          answers[gamecounter] = answer; 
-
-          gameObject.interval = min + "-" + max;
-
-          if (guess == answer) {
-            window.alert("Correct! Congratulations.");
-            successes++;
-            gameObject.success = 1;
-          } else {
-            window.alert("Sorry. That is wrong. Better luck next time.");
-            gameObject.success = 0;
-          }
-
-          gamecounter++;
-          gameArray.push(gameObject);
-
-          /**
-          STATISTIKVARIABLER FRÅN SPELTYP 1
-          */
-          var statistics = "\nGametype 1: 1 guess per challange.";
-          statistics += "\nNumber of challanges played: " + gamecounter;
-          statistics += "\nCorrect guesses: " + successes + " which is " + ((successes/gamecounter)*100) + "%";
-          statistics += "\nIntervals played:";
-
-          var intervalArray = groupBy(gameArray, 'interval', 'success');
-
-          for (var i = 0; i < intervalArray.length; i++) {
-            statistics += "\n" + intervalArray[i].interval + ": " + intervalArray[i].success + "/" + countGamesinInterval(gameArray, intervalArray[i].interval);
-          }
-        
-
-          var exitflag = window.confirm("--RESULTS THUS FAR--\n" + statistics + "\n-----------\nDo you want to play one more time?")
-
-
-
-        }
-
-
-
-
-        if (gametype == 2) {
-
-          var numberofguesses = 1;
-
-          intervals[gamecounter] = min + "-" + max;
-          answers[gamecounter] = answer;
-          gameObject.interval = min + "-" + max;
-
-          var flag = false;
-          do {
-
-            if (guess == answer) {
-              window.alert("Correct! Congratulations.");
-              flag = true;
-            } else {
-                        
-              if (guess > answer)
-                window.alert("Sorry that is wrong. Hint: The number you are looking for is lower.");
-              if (guess < answer)
-                window.alert("Sorry that is wrong. Hint: The number you are looking for is higher.");
-
-              numberofguesses++;
-
-              guess = takeGuess(min,max);
-
-            }
-
-          } while (!flag);
-
-          
-
-
-        guesses[gamecounter] = numberofguesses;
-        gameObject.attempts = numberofguesses;
-        gamecounter++;
-        gameArray.push(gameObject);
-
-
-
-        /**
-        STATISTIKVARIABLER FRÅN SPELTYP 2
-        */
-
-        var sum = 0;
-        for (var i = 0; i < guesses.length; i++) {
-          sum += parseInt(guesses[i],10);
-        }
-        var avg = sum / guesses.length;
-
-        var statistics = "\nGametype 2: Infinite guesses per challange.";
-        statistics += "\nNumber of challanges played: " + gamecounter;
-        statistics += "\nAverage number of guesses needed: " + avg;
-        statistics += "\nIntervals played:";
-        var intervalArray = groupBy(gameArray, 'interval', 'attempts');
-
-        for (var i = 0; i < intervalArray.length; i++) {
-          statistics += "\n" + intervalArray[i].interval + ": Avg: " + parseInt(intervalArray[i].attempts,10) / parseInt(countGamesinInterval(gameArray, intervalArray[i].interval),10);
-        }
-        
-
-        var exitflag = window.confirm("--RESULTS THUS FAR--\n" + statistics + "\n-----------\nDo you want to play one more time?")
-
-
-        }
-
-
-      } while (exitflag);
-
-      
-
-      //ON EXIT PRINT FULL GAME DETAIL HISTORY
-      for (var i = 0; i < gamecounter; i++) {
-        document.write("<p>Game " + (parseInt(i, 10)+1) + ": Guess/Guesses until correct: " + guesses[i] + " Answer: " + answers[i] + "</p>");
-      }
-
-
-
-
-
-      /*
-      PROMT FOR GUESS
-      Function takes min, max. Returns the guess.
-      */
-
-      function takeGuess(min,max) {
-        var validflag = false;
-        do {
-          var guess = window.prompt("You are guessing a number from " + min  + " to " + max + ".\nType your guess:");
-          if ((guess >= min) && (guess <= max) && (guess == parseInt(guess,10))) {
-            validflag = true;
-          } else {
-            window.alert("Guess invalid. Check that it is inside your interval and an integer. Try again.")
-          }
-
-        } while (!validflag);
-        return guess;
-      }
-
-      /**
-      Räknar antalet spel som gjorts i intervallet
-      */
-      function countGamesinInterval(array, interval) {
-        var counter = 0;
-        for (var i = 0; i < array.length; i++) {
-          if (interval == array[i].interval) {
-            counter++;
-          }
-        }
-        return counter;
-      }
-
-
-      /*SNODD FRÅN:
-      http://stackoverflow.com/questions/14446511/what-is-the-most-efficient-method-to-groupby-on-a-javascript-array-of-objects
-      begriper ej.
-      Skapar i alla fall en ny array of object med bara ett objekt för varje col som existerar i arrayen och med value aggregerat från alla objekten med samma col i ursprungliga arrayen
-      */
-      function groupBy(array, col, value) {
-        var r = [], o = {};
-        array.forEach(function (a) {
-        if (!o[a[col]]) {
-            o[a[col]] = {};
-            o[a[col]][col] = a[col];
-            o[a[col]][value] = 0;
-            r.push(o[a[col]]);
-        }
-        o[a[col]][value] += +a[value];
-        });
-      return r;
-      };
-
-
-
-
-
-    </script>
   </body>
 </html>
