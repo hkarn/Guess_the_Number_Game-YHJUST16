@@ -1,22 +1,29 @@
-/** Main listeners */
+/* -START LISTENERS- */
 
 window.onload = function() {
-  var e = document.getElementsByClassName('wake-content');
-  for (var i = 0; i < e.length; i++) {
-    e[i].addEventListener('click', addContent);
+
+  /** Hide the result button, the reason for doing it via js is we need to
+  be able to remove and not just overwrite this rule or it will overwrite the hover transform */
+  var el = document.getElementById('nav-result');
+  el.style.transform = "translateY(-200%)";
+  el.style.WebkitTransform = "translateY(-200%)";
+
+  var el = document.getElementsByClassName('wake-content');
+  for (var i = 0; i < el.length; i++) {
+    el[i].addEventListener('click', addContent);
   };
 
-  var e = document.getElementsByTagName('button');
-  for (var i = 0; i < e.length; i++) {
-    e[i].addEventListener('click', iPlayedAGame);
+  var el = document.getElementById('game-wrapper').getElementsByTagName('button');
+  for (var i = 0; i < el.length; i++) {
+    el[i].addEventListener('click', iPlayedAGame);
   };
 };
 
 
 
-/* Functions */
+/* -FUNCTIONS- */
+
 function addContent(e) {
-  console.log(e);
   if (e != "noevent") {
     var url = e.target.href;
     if (url === undefined) {
@@ -24,19 +31,31 @@ function addContent(e) {
     };
     e.preventDefault();
   };
-  document.getElementById('about-section').style.display = "block";
-  document.getElementById('about-section').style.animation = "slide-in 1s 1 forwards";
-  document.getElementById('about-section').style.WebkitAnimation = "slide-in 1s 1 forwards";
-  document.getElementById('main-footer').style.display = "block";
-  document.getElementById('main-footer').style.animation = "slide-in 1s 1 forwards";
-  document.getElementById('main-footer').style.WebkitAnimation = "slide-in 1s 1 forwards";
-  /*
-  document.getElementById('results-section').style.display = "block";
-  document.getElementById('results-section').style.animation = "slide-in 4s 1 forwards";
-  document.getElementById('results-section').style.WebkitAnimation = "slide-in 4s 1 forwards";
-  */
+  var el = document.getElementById('about-section');
+  el.style.display = "block";
+  el.style.animation = "slide-in 1s 1 forwards";
+  el.style.WebkitAnimation = "slide-in 1s 1 forwards";
+  var el = document.getElementById('main-footer');
+  el.style.display = "block";
+  el.style.animation = "slide-in 1s 1 forwards";
+  el.style.WebkitAnimation = "slide-in 1s 1 forwards";
+
   if (e != "noevent") {
-    setTimeout(function(){window.location = url;}, 1001);
+    var timer = setInterval(
+        function(){
+          console.log("scrolling");
+          window.scrollBy(0,15);
+        }
+        , 1);
+
+
+      console.log("done");
+    setTimeout(
+      function(){
+      clearTimeout(timer);
+      window.location = url;
+      }
+    , 1005);
   };
 
 
