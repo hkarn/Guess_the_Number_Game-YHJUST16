@@ -55,7 +55,7 @@ function addContent(e) {
       clearTimeout(timer);
       window.location = url;
       }
-    , 1005);
+    , 1200); //Safari takes longer to render the elements in new positon
   };
 
 
