@@ -27,7 +27,7 @@
     <script src="js/guess.js"></script>
 
 
-    <section id="cover-section">
+    <section id="cover-section" class="text-center">
       <div class="text-center">
         <nav class="navbar navbar-dark">
           <button class="navbar-toggler hidden-md-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
@@ -37,36 +37,53 @@
             </figure>
             <ul class="nav navbar-nav">
               <li class="nav-item" id="navbar-results">
-                <a class="nav-link" id="nav-result" href="#">Results</a>
+                <a class="nav-link" id="nav-result" href="#results-section">Results</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link wake-content" href="#about-section">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link wake-content" href="#main-footer">Contact</a>
               </li>
             </ul>
 
           </div>
 
-          <script>
-          setTimeout(function(){ document.getElementById('nav-result').style.display = 'list-item'; }, 2000);
-
-          </script>
-
         </nav>
       </div>
-
-      <div>
-        HELLO PPL! How are you?
+      <div class="cover-separator"></div>
+      <div id="game-wrapper" class="text-center">
+        <h1>Welcome to Guess the Number</h1>
+        <p>Choose your game style</p>
+        <button>Fixed range</button>
+        <button>Fluid range</button>
+        <button>Random range</button>
       </div>
+      <div class="cover-separator"></div>
+      <div class="text-center">
+        <a href="#about-section" class="wake-content">
+          <i class="fa fa-arrow-down fa-4x" id="cover-arrow-down" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+    <section id="results-section">
+      <h1>Results</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec magna vel erat posuere vehicula. Integer metus tellus, venenatis non nunc id, rutrum finibus tortor. Phasellus sagittis neque quis sapien vehicula consequat. Praesent consequat non massa sit amet ornare. Nulla scelerisque rutrum sodales. Morbi porttitor tincidunt dui et lacinia. In id urna ac magna eleifend maximus eu a elit.
 
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec metus lectus, iaculis in orci ut, malesuada dapibus nulla. Nullam gravida diam ipsum, a convallis nunc vestibulum quis. Duis at accumsan ante, sit amet sodales elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ut lorem mi. Fusce ut augue sodales, commodo ex in, vulputate ipsum. In hac habitasse platea dictumst. Proin convallis sodales mauris ut elementum. Praesent in posuere purus. Maecenas vitae arcu eu velit condimentum finibus. Proin maximus, justo eget pellentesque aliquam, magna risus sollicitudin sem, quis maximus magna erat ut velit. Vivamus ut lacinia sapien.
+      </p>
     </section>
     <section id="about-section">
-      HI
+      <h1>About</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec magna vel erat posuere vehicula. Integer metus tellus, venenatis non nunc id, rutrum finibus tortor. Phasellus sagittis neque quis sapien vehicula consequat. Praesent consequat non massa sit amet ornare. Nulla scelerisque rutrum sodales. Morbi porttitor tincidunt dui et lacinia. In id urna ac magna eleifend maximus eu a elit.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec metus lectus, iaculis in orci ut, malesuada dapibus nulla. Nullam gravida diam ipsum, a convallis nunc vestibulum quis. Duis at accumsan ante, sit amet sodales elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed ut lorem mi. Fusce ut augue sodales, commodo ex in, vulputate ipsum. In hac habitasse platea dictumst. Proin convallis sodales mauris ut elementum. Praesent in posuere purus. Maecenas vitae arcu eu velit condimentum finibus. Proin maximus, justo eget pellentesque aliquam, magna risus sollicitudin sem, quis maximus magna erat ut velit. Vivamus ut lacinia sapien.
+      </p>
     </section>
     <footer id="main-footer">
-      HI
+      <h1>Footer</h1>
     </footer>
   </body>
 </html>
