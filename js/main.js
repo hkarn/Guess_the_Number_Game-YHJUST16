@@ -24,40 +24,36 @@ window.onload = function() {
 /* -FUNCTIONS- */
 
 function addContent(e) {
-  if (e != "noevent") {
-    var url = e.target.href;
-    if (url === undefined) {
-      url = e.target.baseURI;
+  if (window.getComputedStyle(document.getElementById('about-section')).getPropertyValue("display") == "none" ) {
+    if (e != "noevent") {
+      var url = e.target.href;
+      if (url === undefined) {
+        var url = e.target.parentNode.href;
+      };
+      e.preventDefault();
     };
-    e.preventDefault();
-  };
-  var el = document.getElementById('about-section');
-  el.style.display = "block";
-  el.style.animation = "slide-in 1s 1 forwards";
-  el.style.WebkitAnimation = "slide-in 1s 1 forwards";
-  var el = document.getElementById('main-footer');
-  el.style.display = "block";
-  el.style.animation = "slide-in 1s 1 forwards";
-  el.style.WebkitAnimation = "slide-in 1s 1 forwards";
+    var el = document.getElementById('about-section');
+    el.style.display = "block";
+    el.style.animation = "slide-in 1s 1 forwards";
+    el.style.WebkitAnimation = "slide-in 1s 1 forwards";
+    var el = document.getElementById('main-footer');
+    el.style.display = "block";
+    el.style.animation = "slide-in 1s 1 forwards";
+    el.style.WebkitAnimation = "slide-in 1s 1 forwards";
 
-  if (e != "noevent") {
-    var timer = setInterval(
+    if (e != "noevent") {
+      var timer = setInterval(
+          function(){
+            window.scrollBy(0,15);
+          }
+          , 1);
+
+      setTimeout(
         function(){
-          console.log("scrolling");
-          window.scrollBy(0,15);
+        clearTimeout(timer);
+        window.location = url;
         }
-        , 1);
-
-
-      console.log("done");
-    setTimeout(
-      function(){
-      clearTimeout(timer);
-      window.location = url;
-      }
-    , 1200); //Safari takes longer to render the elements in new positon
+      , 1300); //Safari takes longer to render the elements in new positon
+    };
   };
-
-
-
-}
+};
