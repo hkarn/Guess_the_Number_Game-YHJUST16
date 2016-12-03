@@ -1,20 +1,28 @@
-/** TEST FUNCTION */
-function iPlayedAGame() {
+/** Shows results section */
+function addResult() {
   addContent("noevent")
-  document.getElementById('nav-result').style.display = "block";
-  document.getElementById('nav-result').style.animation = "slide-in 1s 1 forwards";
-  document.getElementById('nav-result').style.WebkitAnimation = "slide-in 1s 1 forwards";
+  var el = document.getElementById('nav-result');
+  el.style.display = "block";
+  el.style.animation = "slide-in 1s 1 forwards";
+  el.style.WebkitAnimation = "slide-in 1s 1 forwards";
 
-  document.getElementById('results-section').style.display = "block";
-  document.getElementById('results-section').style.animation = "slide-in 3s 1 forwards";
-  document.getElementById('results-section').style.WebkitAnimation = "slide-in 3s 1 forwards";
+  var el = document.getElementById('results-section');
+  el.style.display = "block";
+  el.style.animation = "slide-in 3s 1 forwards";
+  el.style.WebkitAnimation = "slide-in 3s 1 forwards";
 
   setTimeout(
     function(){
-      document.getElementById('nav-result').style.animation = "";
-      document.getElementById('nav-result').style.transform = "";
-      document.getElementById('nav-result').style.WebkitTransform = "";
+      var el = document.getElementById('nav-result');
+      el.style.animation = "";
+      el.style.transform = "";
+      el.style.WebkitTransform = "";
     }
-    , 1001);
+    , 1050);
 
+}
+
+
+function playGame(type) {
+  alert("hi")
 }

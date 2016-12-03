@@ -15,7 +15,7 @@ window.onload = function() {
 
   var el = document.getElementById('game-wrapper').getElementsByTagName('button');
   for (var i = 0; i < el.length; i++) {
-    el[i].addEventListener('click', iPlayedAGame);
+    el[i].addEventListener('click', function(){playGame(i);});
   };
 };
 
