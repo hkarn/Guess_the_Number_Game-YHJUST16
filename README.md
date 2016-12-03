@@ -9,17 +9,17 @@ This was completed about a half a semester into our front-end developer program.
 
 The project uses Bootstrap 4 (with pre-reqs jQuery and Tether), Font Awesome 4 and artwork from Pixabay.
 
-[Live version](https://arnoldson.online/projects/guess/)
+## [Live version](https://arnoldson.online/projects/guess/)
 
-[LinkedIn](https://www.linkedin.com/in/arnoldson)
+## [LinkedIn](https://www.linkedin.com/in/arnoldson)
 
 ### The following languages, libraries, resources and programs were used
-* HTML5
+* HTML
 * CSS
 * SCSS
 * JavaScript
-* Bootstrap 4
-* jQuery
+* Bootstrap
+  * jQuery
 * Tether
 * Font Awesome
 * Git
