@@ -14,9 +14,9 @@ window.onload = function() {
   };
 
   var el = document.getElementById('game-wrapper').getElementsByTagName('button');
-  for (var i = 0; i < el.length; i++) {
-    el[i].addEventListener('click', function(){playGame(i);});
-  };
+    el[0].addEventListener('click', function(){playGame("fixed");});
+    el[1].addEventListener('click', function(){playGame("fluid");});
+    el[2].addEventListener('click', function(){playGame("random");});
 };
 
 
