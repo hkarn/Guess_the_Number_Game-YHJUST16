@@ -1,6 +1,5 @@
-/** REWRITE TO USE SCSS !!!*/
-
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+/** REWRITE TO USE SCSS !!!*/
 
 html {
   height: 100%;
@@ -29,12 +28,26 @@ h2 {
 
 /** Background */
 #cover-section {
-  background: #696969 url("../img/pixabayCC0/of-1078412_1280.jpg") no-repeat 50% 40%;;
+  background: #696969 url("../img/pixabayCC0/of-1078412_1280.jpg") no-repeat 50% 40%;
   background-size: cover;
   height: 100%;
   width: 100%;
   overflow-y: hidden;
   min-height: 500px;
+}
+
+@media only screen and (max-width: 768px) {
+  #cover-section {
+    background: #696969 url("../img/pixabayCC0/of-1078412_640.jpg") no-repeat 50% 40%;
+    background-size: cover;
+  }
+}
+
+@media only screen and (min-width: 2000px) {
+  #cover-section {
+    background: #696969 url("../img/pixabayCC0/of-1078412_1920.jpg") no-repeat 50% 40%;
+    background-size: cover;
+  }
 }
 
 /** Navbar */
