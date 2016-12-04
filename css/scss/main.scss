@@ -106,11 +106,13 @@ h2 {
 
 
 #game-section {
-  display: table;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   width: 100%;
-  position: absolute;
   margin: auto;
-  bottom: 0px; top: 0px;
   z-index: 1;
 }
 
@@ -130,11 +132,6 @@ h2 {
 }
 
 @media only screen and (max-height: 500px) {
-
-  #game-section {
-    top: 90px;
-    bottom: auto;
-  }
 
   #cover-arrow-wraper {
     display: none;

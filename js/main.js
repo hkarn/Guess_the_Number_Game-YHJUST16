@@ -1,3 +1,31 @@
+/* -LAGUAGE DETECTION TO GET LINK TO SWEDISH LINKEDIN PROFILE IF APPLICABLE- */
+
+/** This function is called like callLanguagecheck(function(data){});
+    So we are sending a function along that will be executed after the ajax request
+    on the event handlers .done or .fail
+    */
+function callLanguagecheck(callback) {
+  var temp =$.getJSON('php/lang.php', function() {
+  })
+  .done(function(data) {
+    callback(data);
+  })
+  .fail(function() {
+    callback("failed");
+  });
+};
+
+callLanguagecheck(function(data){
+  var language = "";
+  if (data != "failed") {
+    if (data.substr(0,2) === "sv") {
+      language = "/sv";
+    };
+  };
+  document.getElementById('linkedin-anchor').href = "https://www.linkedin.com/in/arnoldson" + language;
+});
+
+
 /* -START LISTENERS- */
 
 window.onload = function() {
