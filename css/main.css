@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 /** REWRITE TO USE SCSS !!!*/
-
 html {
   height: 100%;
 }
@@ -8,7 +7,6 @@ html {
 body {
   height: 100%;
   font-family: 'Nunito', sans-serif;
-
 }
 
 .text-center {
@@ -29,10 +27,9 @@ h2 {
   outline-color: #696969 !important;
 }
 
-
 /** Background */
 #cover-section {
-  background: #696969 url("../img/pixabayCC0/of-1078412_1280.jpg") no-repeat 50% 40% /cover;
+  background: #696969 url("../img/pixabayCC0/of-1078412_1280.jpg") no-repeat 50% 40%/cover;
   height: 100%;
   width: 100%;
   overflow-y: hidden;
@@ -41,61 +38,56 @@ h2 {
 
 @media only screen and (max-width: 768px) {
   #cover-section {
-    background: #696969 url("../img/pixabayCC0/of-1078412_640.jpg") no-repeat 50% 40% /cover;
+    background: #696969 url("../img/pixabayCC0/of-1078412_640.jpg") no-repeat 50% 40%/cover;
   }
 }
 
 @media only screen and (min-width: 2000px) {
   #cover-section {
-    background: #696969 url("../img/pixabayCC0/of-1078412_1920.jpg") no-repeat 50% 40% /cover;
+    background: #696969 url("../img/pixabayCC0/of-1078412_1920.jpg") no-repeat 50% 40%/cover;
   }
 }
 
 /** Navbar */
-
-.nav-container{
+.nav-container {
   position: absolute;
   top: 0;
   width: 100%;
   z-index: 2;
 }
+
 .navbar {
   display: inline-block;
-  background-color: rgba(0, 0, 0, 0.0);
+  background-color: transparent;
   margin-top: 10px;
   padding: 9px 15px;
   white-space: nowrap;
   border-radius: 15px;
-
 }
-
-
 
 .navbar-brand {
   padding: 0;
   margin: 0 10px 0 0;
-
 }
 
 .navbar-brand img {
   width: auto;
   height: 36px;
-  padding:2px;
+  padding: 2px;
   position: relative;
   top: 3px;
 }
 
 .navbar-nav {
   display: inline;
-
 }
 
 .navbar-dark .navbar-nav .nav-link {
   text-transform: uppercase;
-  color: rgb(215,215,215);
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+  color: #d7d7d7;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9);
   font-size: 24px;
-  padding:2px;
+  padding: 2px;
   margin: 0 5px;
 }
 
@@ -103,27 +95,25 @@ h2 {
 .navbar-dark .navbar-nav .nav-link:focus,
 #nav-result:hover,
 #nav-result:focus {
-  color: rgb(255,255,255);
+  color: white;
   transform: scale(1.3);
   transition: all .4s ease-in-out;
   outline: 0;
 }
 
 #cover-arrow-down {
-  color: rgba(0,0,0,0.6);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 #cover-arrow-down:hover,
 #cover-arrow-down:focus {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   transform: scale(1.4);
   transition: all .4s ease-in-out;
   outline: 0;
 }
 
 /** Game */
-
-
 #game-section {
   position: relative;
   top: 50%;
@@ -137,7 +127,7 @@ h2 {
 
 #game-wrapper {
   display: inline-block;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 15px;
   padding: 10px;
 }
@@ -151,16 +141,14 @@ h2 {
 }
 
 @media only screen and (max-height: 500px) {
-
   #cover-arrow-wraper {
     display: none;
-    }
-
+  }
 }
 
 #game-wrapper {
-  color: rgb(255,255,255);
-  text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+  color: white;
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
 }
 
 #game-wrapper h1 {
@@ -174,14 +162,14 @@ h2 {
 }
 
 #game-wrapper button {
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
   color: #fff;
-  border: rgba(255,255,255,0.7) solid 1px;
+  border: rgba(255, 255, 255, 0.7) solid 1px;
   border-radius: 15px;
   padding: 10px;
   margin: 10px;
-  text-shadow: 0px 0px 2px rgba(255,255,255,0.1);
+  text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.1);
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
 }
@@ -199,11 +187,11 @@ h2 {
 
 #game-wrapper button:hover,
 #game-wrapper button:focus {
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   color: #000;
-  border: rgba(0,0,0,0.7) solid 1px;
+  border: rgba(0, 0, 0, 0.7) solid 1px;
   transform: scale(1.2);
-  text-shadow: 0px 0px 2px rgba(0,0,0,0.1);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
   transition: all .4s ease-in-out;
   outline: 0;
 }
@@ -219,29 +207,25 @@ h2 {
   margin-top: 10px;
 }
 
-
 #results-section a,
 #about-section a,
 #results-section a:visited,
 #about-section a:visited,
 #results-section a:active,
-#about-section a:active
- {
-  color: rgb(80,80,80);
+#about-section a:active {
+  color: #505050;
   text-decoration: none;
 }
 
 #results-section a:hover,
 #about-section a:hover,
 #results-section a:focus,
-#about-section a:focus
- {
-  color: rgb(0,0,0);
+#about-section a:focus {
+  color: black;
   text-decoration: underline;
 }
 
 /* Footer */
-
 .footer-social {
   margin: 0;
   padding-top: 5px;
@@ -265,7 +249,7 @@ h2 {
 #main-footer i,
 #main-footer a:visited,
 #main-footer a:active {
-  color: rgb(215,215,215);
+  color: #d7d7d7;
   text-decoration: none;
 }
 
@@ -283,7 +267,7 @@ h2 {
 }
 
 #results-section {
-  margin:auto;
+  margin: auto;
   max-width: 900px;
   line-height: 2.1;
   font-size: 1.185em;
@@ -296,7 +280,7 @@ h2 {
 }
 
 #about-section {
-  margin:auto;
+  margin: auto;
   max-width: 900px;
   line-height: 2.1;
   font-size: 1.185em;
@@ -310,22 +294,20 @@ h2 {
 
 #main-footer {
   display: none;
-  color: rgba(255,255,255,0.9);
-  background-color: rgba(0,0,0,0.8);
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 10px;
   transform: translateY(-2500%);
   -webkit-transform: translateY(-2500%);
 }
 
 @media only screen and (max-width: 768px) {
-
-  .nav-container{
+  .nav-container {
     position: absolute;
     top: 0;
     width: 100%;
     text-align: left;
   }
-
   .navbar {
     background-color: rgba(0, 0, 0, 0.95);
     float: right;
@@ -333,48 +315,46 @@ h2 {
     max-width: 205px;
     border: rgba(255, 255, 255, 0.9) solid 1px;
   }
-
   .navbar-toggler {
     float: right;
     clear: none;
   }
-
   .nav-item {
     margin-right: 50px;
   }
-
   .navbar-brand {
     display: none !important;
   }
-
   #game-wrapper button {
     display: block;
     margin: 10px auto;
   }
-
   .indent-second-about {
     margin-left: 0;
   }
-
-  .indent-second-about h2{
+  .indent-second-about h2 {
     margin-left: 0;
     margin-right: 10px;
     display: inline;
     min-width: 0;
   }
-
   #results-section,
   #about-section {
     line-height: 1.7;
   }
-
 }
 
 /** Animations */
 @keyframes slide-in {
-    100% { transform: translateY(0%); }
+  100% {
+    transform: translateY(0%);
+  }
 }
 
 @-webkit-keyframes slide-in {
-    100% { -webkit-transform: translateY(0%); }
+  100% {
+    -webkit-transform: translateY(0%);
+  }
 }
+
+/*# sourceMappingURL=main.css.map */
